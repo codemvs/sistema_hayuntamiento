@@ -5,10 +5,8 @@ var Login = Login || {
         Login.btnRegistrarUsuario();
         Login.inicarControles();
     },
-    inicarControles: function(){
-        $('#txtFechaNacimiento').datetimepicker({
-            locale: 'es'
-        });
+    inicarControles: function(){        
+        
     },
     // Events
     btnIniciarSesion: function(){
@@ -25,8 +23,24 @@ var Login = Login || {
     btnRegistrarUsuario:function(){
         $('#btnRegistroUsuario').click((e)=>{
             e.preventDefault();
-            procesando();
-            //swal.fire('prueba');
+            var usuraio = {                
+                nombre:$('#txtNombre').val().trim(),
+                apellidos:$('#txtApellidos').val().trim(),
+                domicilio:$('#txtDomicilio').val().trim(),
+                telefono:$('#txtTelefono').val().trim(),
+                celular:$('#txtCelular').val().trim(),
+                fechaNacimiento:$('#txtFechaNacimiento').val().trim(),
+                rfc:$('#txtRfc').val().trim(),
+                curp:$('#txtCurp').val().trim(),
+                email:$('#txtEmailUs').val().trim(),
+                contrasenia:$('#txtPasswordUs').val().trim()
+            };
+            console.log(usuraio)
+
+            $.post('../myapplication/login/createUsuario',usuraio)
+                .then(res=> swal.fire('Se agrego correctamente'))
+                .catch((err,err1, err2)=>console.log(err, err1, err2))
+
         });
     },
 };

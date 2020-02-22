@@ -16,4 +16,8 @@ function procesando(){
     });
 };
 
+$('.datepicker').datepicker({
+    format: 'dd/mm/yyyy',            
+    locale: 'es'
+});
  

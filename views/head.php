@@ -9,7 +9,7 @@
   <link href="./public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- SweetAlert -->
   <link href="./public/vendor/sweetalert2-9.7.1/css/sweetalert2.min.css" rel="stylesheet">
-  <link href="./public/vendor/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+  <link href="./public/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
 
   <link href="./public/css/main.css" rel="stylesheet">
 </head>

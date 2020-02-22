@@ -41,7 +41,7 @@
 
                         <div class="col-sm-4 form-group">
                             <label for="txtFechaNacimiento">Fecha Nacimiento:</label>
-                            <input type="text" id="txtFechaNacimiento" class="form-control" placeholder="dd/mm/aaaa"/>
+                            <input type="text" id="txtFechaNacimiento" class="form-control datepicker" placeholder="dd/mm/aaaa"/>
                         </div>
 
                         <div class="col-sm-4 form-group">
@@ -56,12 +56,12 @@
 
                         <div class="col-sm-4 form-group">
                             <label for="txtEmail">Correo electrónico:</label>
-                            <input type="text" id="txtEmail" class="form-control" placeholder="Correo electrónico"/>
+                            <input type="email" id="txtEmailUs" class="form-control" placeholder="Correo electrónico"/>
                         </div>
 
                         <div class="col-sm-4 form-group">
                             <label for="txtPassword">Contraseña:</label>
-                            <input type="text" id="txtPassword" class="form-control" placeholder="Contraseña"/>
+                            <input type="password" id="txtPasswordUs" class="form-control" placeholder="Contraseña"/>
                         </div>
                     </div>
                 </div>
