@@ -30,6 +30,24 @@ class UsuarioModel extends Model{
             throw new Exception($e->getMessage());
         }
     }
+    public function iniciarSesion($usuario){
+        $query = 'SELECT idUsuario, nombre, apellidos,email 
+                    FROM tblusuario 
+                        WHERE email = :email AND contrasenia = :contrasenia LIMIT 1';
+        $respQuery = $this->db->connect()->prepare($query);
+        try{
+            $respQuery->execute([
+                'email'=>$usuario->email,
+                'contrasenia'=>$usuario->contrasenia
+            ]);
+            $respQuery->setFetchMode(PDO::FETCH_ASSOC);
+      
+            return json_encode( $respQuery->fetch()  );
+            
+        }catch(PDOException $e){
+            throw new Exception($e->getMessage());
+        }
+    }
 }
 
 ?>

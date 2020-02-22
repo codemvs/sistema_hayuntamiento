@@ -40,6 +40,23 @@ class Login extends Controller{
             exit();
             }
         }
+    
+    
+    }
+    function iniciarSesion(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+            $params = $_POST;           
+            
+            $usuario = new UsuarioClass(); 
+            $usuario->email=$params['email'];
+            $usuario->contrasenia=$params['contrasenia'];           
+            //header("HTTP/1.1 400 OK");
+
+            echo $this->model->iniciarSesion($usuario);
+            exit();
+            
+        }
     }
 }
 ?>
