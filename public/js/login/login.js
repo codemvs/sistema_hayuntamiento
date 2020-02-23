@@ -1,22 +1,37 @@
 var Login = Login || {
+    
     init: function(){
         Login.btnIniciarSesion();
         Login.btnAbrirModalRegistroUsuario();
         Login.btnRegistrarUsuario();
         Login.inicarControles();
     },
-    inicarControles: function(){        
+    inicarControles: function(){     
+        // Eliminar    
+        $('#txtEmail').val('popeye@marino.soy'); 
+        $('#txtPassword').val('123');
         
     },
     // Events
     btnIniciarSesion: function(){
         $('#btnIniciarSesion').click((e)=>{
             e.preventDefault();
-            alert(1);
+            
+            var dataLogin = {
+                email: $('#txtEmail').val().trim(),
+                contrasenia:$('#txtPassword').val().trim()
+            };
+            Login.sIniciarSesion(dataLogin).then(usuario=>{              
+
+                localStorage.setItem('usuario', JSON.stringify(usuario));
+                location = base;
+                
+            });
         });
     },
     btnAbrirModalRegistroUsuario:function(){
         $('#abrirModalCrearCuenta').click(()=>{
+            $('#frmRegistroUsuario')[0].reset();
             $('#modRegistroUsuario').modal();
         });        
     },
@@ -42,5 +57,18 @@ var Login = Login || {
                 .catch((err,err1, err2)=>console.log(err, err1, err2))
 
         });
-    },
+    },   
+    
+    // Servicios
+    sIniciarSesion: function(dataLogin) {
+        var $d = $.Deferred();
+        Utils.post(base+'login/iniciarSesion', dataLogin).then((res)=>{
+            $d.resolve(res);
+        }).fail((err)=>{
+            Swal.fire('Ocurrió un error',err.message,'error');
+            $d.reject();
+        });
+        return $d.promise();
+    }
+    
 };

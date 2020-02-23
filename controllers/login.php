@@ -47,13 +47,53 @@ class Login extends Controller{
         if ($_SERVER['REQUEST_METHOD'] == 'POST')
         {
             $params = $_POST;           
+            try{
+                $usuario = new UsuarioClass(); 
+                $usuario->email=$params['email'];
+                $usuario->contrasenia=$params['contrasenia'];     
+                $respUsuario = $this->model->iniciarSesion($usuario);
+                if($respUsuario == null){                    
+                    header("HTTP/1.1 401 UNAUTHORIZED");
+                    echo "El usuario no es válido";
+                    exit();                    
+                }
+                
+                header("HTTP/1.1 200 OK");                
+                echo json_encode($respUsuario);
+                exit();
+                
+            }catch(Exception $ex){
+                
+                header("HTTP/1.1 400 BAD REQUEST");
+                echo $ex->getMessage();
+                exit();
+            }           
             
-            $usuario = new UsuarioClass(); 
-            $usuario->email=$params['email'];
-            $usuario->contrasenia=$params['contrasenia'];           
-            //header("HTTP/1.1 400 OK");
+        }
+    }
+    function cerrarSession(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+            
+            session_destroy();
+            
+            header("HTTP/1.1 200 OK");    
+            // Destruir todas las variables de sesión.
+            // $_SESSION = array();
 
-            echo $this->model->iniciarSesion($usuario);
+            // Si se desea destruir la sesión completamente, borre también la cookie de sesión.
+            // Nota: ¡Esto destruirá la sesión, y no la información de la sesión!
+            // if (ini_get("session.use_cookies")) {
+            //     $params = session_get_cookie_params();
+            //     setcookie(session_name(), '', time() - 42000,
+            //         $params["path"], $params["domain"],
+            //         $params["secure"], $params["httponly"]
+            //     );
+            // }
+
+            // Finalmente, destruir la sesión.
+            
+            parent::cerrarSesion();
             exit();
             
         }

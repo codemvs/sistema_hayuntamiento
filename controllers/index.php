@@ -5,11 +5,7 @@ class Index extends Controller{
         parent::__construct();
     }
 
-    function render(){
-        if(0==1){
-            $this->view->render('login/login');
-            return;
-        }
+    function render(){                
         
         $this->view->render('index/home');
     }

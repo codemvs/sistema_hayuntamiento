@@ -4,12 +4,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>H. Hayuntamiento Tlachichilco</title>
     
-      
+    <base id="baseUrl" href="<?php echo URL ?>">
   <!-- Bootstrap core CSS -->
-  <link href="./public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo URL;?>public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- SweetAlert -->
-  <link href="./public/vendor/sweetalert2-9.7.1/css/sweetalert2.min.css" rel="stylesheet">
-  <link href="./public/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+  <link href="<?php echo URL;?>public/vendor/sweetalert2-9.7.1/css/sweetalert2.min.css" rel="stylesheet">
+  <link href="<?php echo URL;?>public/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
 
-  <link href="./public/css/main.css" rel="stylesheet">
+  <link href="<?php echo URL;?>public/css/main.css" rel="stylesheet">
 </head>

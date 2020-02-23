@@ -44,7 +44,7 @@ class UsuarioModel extends Model{
             ]);
             $respQuery->setFetchMode(PDO::FETCH_ASSOC);
       
-            return json_encode( $respQuery->fetch()  );
+            return $respQuery->fetch();
             
         }catch(PDOException $e){
             throw new Exception($e->getMessage());
