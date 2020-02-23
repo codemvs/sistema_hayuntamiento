@@ -75,5 +75,22 @@ class Computadora extends Controller{
             exit();
         }
     }
+    function deleteComputadora() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $params = $_POST;
+
+            $computadora = new ComputadoraClass();
+             //try{
+                
+                $computadora->idComputadora = $params['idComputadora'];
+    
+                $this->model->deleteComputadora($computadora);
+            //  }catch(Exception $e){
+
+            //  }
+           
+            exit();
+        }
+    }
 }
 ?>

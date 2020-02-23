@@ -84,6 +84,19 @@
                 throw new Exception($e->getMessage());
             }
         }
+        public function deleteComputadora($computadora){
+            $query = 'DELETE FROM tblcomputadora WHERE idComputadora = :idComputadora';
+            try{
+                $respQuery = $this->db->connect()->prepare($query);
+            
+                $respQuery->execute([
+                    'idComputadora' => $computadora->idComputadora
+                ]);
+                
+            }catch(PDOException $e){
+                throw new Exception($e->getMessage());
+            }
+        }
     }
 
 ?>
