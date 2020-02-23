@@ -8,11 +8,12 @@ class UsuarioModel extends Model{
         parent::__construct();
     }
 
-    public function createUsuario($usuario){
+    public function createUsuario($usuario) {
         $query = 'INSERT INTO tblusuario( nombre, apellidos, domicilio, telefono, celular, fechaNacimiento, rfc, curp, email, contrasenia)
                      VALUES (:nombre, :apellidos, :domicilio, :telefono, :celular, :fechaNacimiento, :rfc, :curp, :email, :contrasenia)';
-        $respQuery = $this->db->connect()->prepare($query);
         try{
+            $respQuery = $this->db->connect()->prepare($query);
+        
             $respQuery->execute([
                 'nombre'=>$usuario->nombre,
                 'apellidos'=>$usuario->apellidos,
@@ -30,12 +31,13 @@ class UsuarioModel extends Model{
             throw new Exception($e->getMessage());
         }
     }
-    public function iniciarSesion($usuario){
+    public function iniciarSesion($usuario) {
         $query = 'SELECT idUsuario, nombre, apellidos,email 
                     FROM tblusuario 
                         WHERE email = :email AND contrasenia = :contrasenia LIMIT 1';
-        $respQuery = $this->db->connect()->prepare($query);
         try{
+            $respQuery = $this->db->connect()->prepare($query);
+        
             $respQuery->execute([
                 'email'=>$usuario->email,
                 'contrasenia'=>$usuario->contrasenia
