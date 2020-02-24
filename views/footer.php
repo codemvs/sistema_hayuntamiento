@@ -9,4 +9,9 @@
 <script src="<?php echo URL?>public/vendor/sweetalert2-9.7.1/js/sweetalert2.min.js"></script>
 <script src="<?php echo URL?>public/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 <script src="<?php echo URL?>public/vendor/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js"></script>
+
+<script src="<?php echo URL?>public/vendor/datatable/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo URL?>public/vendor/datatable/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?php echo URL?>public/vendor/datatable/js/dataTables.fixedColumns.min.js"></script>
+
 <script src="<?php echo URL?>public/js/utils.js"></script>

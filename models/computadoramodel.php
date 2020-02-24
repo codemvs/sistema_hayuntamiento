@@ -41,7 +41,8 @@
                     'areaAdscripcion'=>$computadora->areaAdscripcion,
                     'fechaAdquisicion'=>$computadora->fechaAdquisicion,
                     'condiciones'=>$computadora->condiciones,
-                    'fotografia'=>$computadora->fotografia
+                    // 'fotografia'=>$computadora->fotografia
+                    'fotografia'=>''
                 ]);
                 
             }catch(PDOException $e){
@@ -76,7 +77,8 @@
                     'areaAdscripcion'=>$computadora->areaAdscripcion,
                     'fechaAdquisicion'=>$computadora->fechaAdquisicion,
                     'condiciones'=>$computadora->condiciones,
-                    'fotografia'=>$computadora->fotografia,
+                    // 'fotografia'=>$computadora->fotografia,
+                    'fotografia'=>'',
                     'idComputadora' => $computadora->idComputadora
                 ]);
                 

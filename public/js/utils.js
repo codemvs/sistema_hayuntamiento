@@ -31,6 +31,7 @@ var Utils = Utils || {
             data:data,
             type:'json',
             success: function(res) {
+                res = res || "";
                 if(res.length>0){ 
                     res = JSON.parse(res);
                 }

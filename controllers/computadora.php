@@ -26,7 +26,7 @@ class Computadora extends Controller{
             $params = $_POST;
 
             $computadora = new ComputadoraClass();
-             //try{
+             try{
                 $computadora->numeroInventario = $params['numeroInventario'];
                 $computadora->descripcion = $params['descripcion'];
                 $computadora->valorFactura = $params['valorFactura'];
@@ -37,12 +37,13 @@ class Computadora extends Controller{
                 $computadora->areaAdscripcion = $params['areaAdscripcion'];
                 $computadora->fechaAdquisicion = $params['fechaAdquisicion'];
                 $computadora->condiciones = $params['condiciones'];
-                $computadora->fotografia = $params['fotografia'];
-    
+                // $computadora->fotografia = $params['fotografia'];
+                header("HTTP/1.1 200 OK");  
                 echo $this->model->createComputadora($computadora);
-            //  }catch(Exception $e){
-
-            //  }
+             }catch(Exception $e){
+                header("HTTP/1.1 400 BAD REQUEST");
+                echo $e->getMessage();
+             }
            
             exit();
         }
@@ -52,7 +53,7 @@ class Computadora extends Controller{
             $params = $_POST;
 
             $computadora = new ComputadoraClass();
-             //try{
+             try{
                 $computadora->numeroInventario = $params['numeroInventario'];
                 $computadora->descripcion = $params['descripcion'];
                 $computadora->valorFactura = $params['valorFactura'];
@@ -63,14 +64,16 @@ class Computadora extends Controller{
                 $computadora->areaAdscripcion = $params['areaAdscripcion'];
                 $computadora->fechaAdquisicion = $params['fechaAdquisicion'];
                 $computadora->condiciones = $params['condiciones'];
-                $computadora->fotografia = $params['fotografia'];
+                // $computadora->fotografia = $params['fotografia'];
 
                 $computadora->idComputadora = $params['idComputadora'];
-    
-                $this->model->updateComputadora($computadora);
-            //  }catch(Exception $e){
 
-            //  }
+                header("HTTP/1.1 200 OK");  
+                echo $this->model->updateComputadora($computadora);
+             }catch(Exception $e){
+                header("HTTP/1.1 400 BAD REQUEST");
+                echo $e->getMessage();
+             }
            
             exit();
         }
@@ -80,14 +83,15 @@ class Computadora extends Controller{
             $params = $_POST;
 
             $computadora = new ComputadoraClass();
-             //try{
+             try{
                 
                 $computadora->idComputadora = $params['idComputadora'];
-    
-                $this->model->deleteComputadora($computadora);
-            //  }catch(Exception $e){
-
-            //  }
+                header("HTTP/1.1 200 OK");  
+                echo $this->model->deleteComputadora($computadora);
+             }catch(Exception $e){
+                header("HTTP/1.1 400 BAD REQUEST");
+                echo $e->getMessage();
+             }
            
             exit();
         }

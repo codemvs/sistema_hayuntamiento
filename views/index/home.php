@@ -7,82 +7,87 @@
     <main class="container mt-1">
         <div class="card-group">
 
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">Título encabezado</div>
+                    <div class="card-header"><h4>Agregar computadoras</h4></div>
                     <div class="card-body">
-                        <form action="/action_page.php">
-                            <div class="form-group">
-                                <label for="email">Email address:</label>
-                                <input type="search" class="form-control" placeholder="Enter email" id="email">
+                        <form class="row" id="frmComputadoras">
+                            <input type="hidden" id="txt_idComputadora">
+                            <div class="col-sm-4 form-group">                                
+                                <label for="txt_numeroInventario">Número inventario:</label>
+                                <input type="text" class="form-control" placeholder="Número inventario" id="txt_numeroInventario">                                
                             </div>
-                            <div class="form-group">
-                                <label for="pwd">Password:</label>
-                                <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+
+                            <div class="col-sm-4 form-group">                                
+                                <label for="txt_descripcion">Descripción:</label>
+                                <input type="text" class="form-control" placeholder="Descripción" id="txt_descripcion">                                
                             </div>
-                            <div class="form-group form-check">
-                                <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox"> Remember me
-                                </label>
+
+                            <div class="col-sm-4 form-group">                                
+                                <label for="txt_valorFactura">Valor Factura:</label>
+                                <input type="text" class="form-control" placeholder="Valor Factura" id="txt_valorFactura">                                
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+
+                            <div class="col-sm-4 form-group">                                
+                                <label for="txt_valorActual">Valor Actual:</label>
+                                <input type="text" class="form-control" placeholder="Valor Actual" id="txt_valorActual">                                
+                            </div>
+
+                            <div class="col-sm-4 form-group">                                
+                                <label for="txt_marca">Marca:</label>
+                                <input type="text" class="form-control" placeholder="Marca" id="txt_marca">                                
+                            </div>
+
+                            <div class="col-sm-4 form-group">                                
+                                <label for="txt_modelo">Modelo:</label>
+                                <input type="text" class="form-control" placeholder="Modelo" id="txt_modelo">                                
+                            </div>
+
+                            <div class="col-sm-4 form-group">                                
+                                <label for="txt_color">Color:</label>
+                                <input type="text" class="form-control" placeholder="color" id="txt_color">                                
+                            </div>
+
+                            <div class="col-sm-4 form-group">                                
+                                <label for="txt_areaAdscripcion">Área Adscripción:</label>
+                                <input type="text" class="form-control" placeholder="Área Adscripción" id="txt_areaAdscripcion">                                
+                            </div>
+
+                            <div class="col-sm-4 form-group">                                
+                                <label for="txt_fechaAdquisicion">Fecha Adquisición:</label>
+                                <input type="text" class="form-control" placeholder="Fecha Adquisición" id="txt_fechaAdquisicion">                                
+                            </div>
+                            
+                            <div class="col-sm-4 form-group">                                
+                                <label for="txt_condiciones">Condiciones:</label>
+                                <input type="text" class="form-control" placeholder="Condiciones" id="txt_condiciones">                                
+                            </div>
+                            
+                            <div class="col-sm-12 form-group">
+                                <button type="submit" class="btn btn-primary" id="aceptarComputadora">Aceptar</button>
+                                <button type="button" class="btn btn-danger" onclick="Computadoras.limpiarFormularioComputadora();">Cancelar</button>
+                            </div>
                         </form>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table id="tbComputadoras" class="table table-striped" style="width: 100%;"></table>
+                            </div>
+                        </div>
                     </div>                
                 </div>
             </div>
             
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-header">Título encabezado</div>
-                    <div class="card-body">
-                        <form action="/action_page.php">
-                            <div class="form-group">
-                                <label for="email">Email address:</label>
-                                <input type="email" class="form-control" placeholder="Enter email" id="email">
-                            </div>
-                            <div class="form-group">
-                                <label for="pwd">Password:</label>
-                                <input type="password" class="form-control" placeholder="Enter password" id="pwd">
-                            </div>
-                            <div class="form-group form-check">
-                                <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox"> Remember me
-                                </label>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>                
-                </div>
-            </div>
         </div>
     </main>
 
-    <!-- The Modal -->
-    <div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-          Modal body..
-        </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-        
-      </div>
-    </div>
   </div>
     <?php require 'views/footer.php'; ?>
-
+    <script src="<?php echo URL;?>public/js/computadoras/computadoras.js"></script>
+    <script>
+        $(document).ready(()=>{
+            Computadoras.init();
+        });
+    </script>
 </body>
 </html>
 
