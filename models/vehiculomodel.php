@@ -54,7 +54,8 @@
                     'descripcion'=>$vehiculo->descripcion,
                     'valorActual'=>$vehiculo->valorActual,
                     'valorFactura'=>$vehiculo->valorFactura,
-                    'fotografia'=>$vehiculo->fotografia
+                    // 'fotografia'=>$vehiculo->fotografia
+                    'fotografia'=>''
                 ]);
                 
             }catch(PDOException $e){
@@ -99,8 +100,9 @@
                     'descripcion'=>$vehiculo->descripcion,
                     'valorActual'=>$vehiculo->valorActual,
                     'valorFactura'=>$vehiculo->valorFactura,
-                    'fotografia'=>$vehiculo->fotografia,
-                    'idVehiculo'=>$vehiculo->idVehiculo
+                    // 'fotografia'=>$vehiculo->fotografia,
+                    'idVehiculo'=>$vehiculo->idVehiculo,
+                    'fotografia'=>''
                 ]);
                 
             }catch(PDOException $e){

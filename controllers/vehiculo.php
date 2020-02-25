@@ -5,20 +5,21 @@ class Vehiculo extends Controller{
     {
         parent::__construct();
     }
-    
+    function render() {              
+        
+        $this->view->render('vehiculo/vehiculo');
+    }
     function getVehiculos() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             
-                //try{
-                // $resoponse = '{
-                //     success:true,
-                //     data:'..'
-                // }';
+            try{
+                header("HTTP/1.1 200 OK");
                 echo $this->model->getVehiculos();
                 
-            //  }catch(Exception $e){
-
-            //  }
+             }catch(Exception $e){
+                header("HTTP/1.1 400 BAD REQUEST");
+                echo $e->getMessage();
+             }
             exit();
             
         }
@@ -28,7 +29,7 @@ class Vehiculo extends Controller{
             $params = $_POST;
 
             $vehiculo = new VehiculoClass();
-                //try{                
+            try{                
                 $vehiculo->numeroInventario = $params['numeroInventario'];
                 $vehiculo->numeroSerie = $params['numeroSerie'];
                 $vehiculo->marca = $params['marca'];
@@ -44,12 +45,13 @@ class Vehiculo extends Controller{
                 $vehiculo->descripcion = $params['descripcion'];
                 $vehiculo->valorActual = $params['valorActual'];
                 $vehiculo->valorFactura = $params['valorFactura'];
-                $vehiculo->fotografia = $params['fotografia'];
-                    
+                // $vehiculo->fotografia = $params['fotografia'];
+                header("HTTP/1.1 200 OK");    
                 echo $this->model->createVehiculo($vehiculo);
-            //  }catch(Exception $e){
-
-            //  }
+             }catch(Exception $e){
+                header("HTTP/1.1 400 BAD REQUEST");
+                echo $e->getMessage();
+             }
             
             exit();
         }
@@ -59,7 +61,7 @@ class Vehiculo extends Controller{
             $params = $_POST;
 
             $vehiculo = new VehiculoClass();
-                //try{                
+            try{                
                 $vehiculo->numeroInventario = $params['numeroInventario'];
                 $vehiculo->numeroSerie = $params['numeroSerie'];
                 $vehiculo->marca = $params['marca'];
@@ -75,13 +77,16 @@ class Vehiculo extends Controller{
                 $vehiculo->descripcion = $params['descripcion'];
                 $vehiculo->valorActual = $params['valorActual'];
                 $vehiculo->valorFactura = $params['valorFactura'];
-                $vehiculo->fotografia = $params['fotografia'];
+                // $vehiculo->fotografia = $params['fotografia'];
 
                 $vehiculo->idVehiculo = $params['idVehiculo'];
-                echo $this->model->updateVehiculo($vehiculo);
-            //  }catch(Exception $e){
 
-            //  }
+                header("HTTP/1.1 200 OK");  
+                echo $this->model->updateVehiculo($vehiculo);
+             }catch(Exception $e){
+                header("HTTP/1.1 400 BAD REQUEST");
+                echo $e->getMessage();
+             }
             
             exit();
         }
@@ -91,14 +96,15 @@ class Vehiculo extends Controller{
                 $params = $_POST;
     
                 $vehiculo = new VehiculoClass();
-                 //try{
+                 try{
                     
                     $vehiculo->idVehiculo = $params['idVehiculo'];
-        
+                    header("HTTP/1.1 200 OK");  
                     $this->model->deleteVehiculo($vehiculo);
-                //  }catch(Exception $e){
-    
-                //  }
+                 }catch(Exception $e){
+                    header("HTTP/1.1 400 BAD REQUEST");
+                    echo $e->getMessage();
+                 }
                
                 exit();
             }

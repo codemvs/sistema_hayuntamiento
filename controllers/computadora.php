@@ -7,16 +7,14 @@ class Computadora extends Controller{
     function getComputadoras() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             
-             //try{
-                // $resoponse = '{
-                //     success:true,
-                //     data:'..'
-                // }';
+             try{
+                header("HTTP/1.1 200 OK");  
                 echo $this->model->getComputadoras();
                 
-            //  }catch(Exception $e){
-
-            //  }
+             }catch(Exception $e){
+                header("HTTP/1.1 400 BAD REQUEST");
+                echo $e->getMessage();
+             }
             exit();
             
         }
