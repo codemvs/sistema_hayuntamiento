@@ -5,19 +5,21 @@ class Escritorio extends Controller{
     {
         parent::__construct();
     }
-    function getEscritorio() {
+    function render(){               
+        
+        $this->view->render('escritorio/escritorio');
+    }
+    function getEscritorios() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             
-            //try{
-               // $resoponse = '{
-               //     success:true,
-               //     data:'..'
-               // }';
-               echo $this->model->getEscritorio();
+            try{
+                header("HTTP/1.1 200 OK");
+               echo $this->model->getEscritorios();
                
-           //  }catch(Exception $e){
-
-           //  }
+            }catch(Exception $e){
+                header("HTTP/1.1 400 BAD REQUEST");
+                echo $e->getMessage();
+            }
            exit();
            
        }
@@ -27,7 +29,7 @@ class Escritorio extends Controller{
             $params = $_POST;
 
             $escritorio = new EscritorioClass();
-             //try{
+             try{
                 
                 $escritorio->numeroInventario=$params['numeroInventario'];
                 $escritorio->modelo=$params['modelo'];
@@ -35,12 +37,13 @@ class Escritorio extends Controller{
                 $escritorio->areaAdscripcion=$params['areaAdscripcion'];
                 $escritorio->fechaAdquisicion=$params['fechaAdquisicion'];
                 $escritorio->observacion=$params['observacion'];
-                $escritorio->fotografia=$params['fotografia'];
-    
+                // $escritorio->fotografia=$params['fotografia'];
+                header("HTTP/1.1 200 OK");
                 echo $this->model->createEscritorio($escritorio);
-            //  }catch(Exception $e){
-
-            //  }
+             }catch(Exception $e){
+                header("HTTP/1.1 400 BAD REQUEST");
+                echo $e->getMessage();
+             }
            
             exit();
         }
@@ -50,7 +53,7 @@ class Escritorio extends Controller{
             $params = $_POST;
 
             $escritorio = new EscritorioClass();
-             //try{
+             try{
                 $escritorio->idEscritorio = $params['idEscritorio'];
                 $escritorio->numeroInventario=$params['numeroInventario'];
                 $escritorio->modelo=$params['modelo'];
@@ -58,12 +61,13 @@ class Escritorio extends Controller{
                 $escritorio->areaAdscripcion=$params['areaAdscripcion'];
                 $escritorio->fechaAdquisicion=$params['fechaAdquisicion'];
                 $escritorio->observacion=$params['observacion'];
-                $escritorio->fotografia=$params['fotografia'];
-    
+                // $escritorio->fotografia=$params['fotografia'];
+                header("HTTP/1.1 200 OK");
                 echo $this->model->updateEscritorio($escritorio);
-            //  }catch(Exception $e){
-
-            //  }
+             }catch(Exception $e){
+                header("HTTP/1.1 400 BAD REQUEST");
+                echo $e->getMessage();
+             }
            
             exit();
         }
@@ -73,13 +77,14 @@ class Escritorio extends Controller{
             $params = $_POST;
 
             $escritorio = new EscritorioClass();
-             //try{
+             try{
                 $escritorio->idEscritorio = $params['idEscritorio'];
-                    
+                header("HTTP/1.1 200 OK");
                 echo $this->model->deleteEscritorio($escritorio);
-            //  }catch(Exception $e){
-
-            //  }
+             }catch(Exception $e){
+                header("HTTP/1.1 400 BAD REQUEST");
+                echo $e->getMessage();
+             }
            
             exit();
         }

@@ -4,7 +4,7 @@ class EscritorioModel extends Model{
     {
         parent::__construct();
     }
-    public function getEscritorio() {
+    public function getEscritorios() {
         $query = ' SELECT idEscritorio, numeroInventario,
          modelo, color, areaAdscripcion, fechaAdquisicion,
          observacion, fotografia FROM tblescritorio';
@@ -35,7 +35,8 @@ class EscritorioModel extends Model{
                 'areaAdscripcion'=>$escritorio->areaAdscripcion,
                 'fechaAdquisicion'=>$escritorio->fechaAdquisicion,
                 'observacion'=>$escritorio->observacion,
-                'fotografia'=>$escritorio->fotografia
+                // 'fotografia'=>$escritorio->fotografia
+                'fotografia'=>''
             ]);
             
         }catch(PDOException $e){
@@ -63,7 +64,8 @@ class EscritorioModel extends Model{
                 'areaAdscripcion'=>$escritorio->areaAdscripcion,
                 'fechaAdquisicion'=>$escritorio->fechaAdquisicion,
                 'observacion'=>$escritorio->observacion,
-                'fotografia'=>$escritorio->fotografia
+                // 'fotografia'=>$escritorio->fotografia
+                'fotografia'=>''
             ]);
             
         }catch(PDOException $e){
