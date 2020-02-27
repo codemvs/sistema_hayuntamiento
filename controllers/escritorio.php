@@ -6,7 +6,7 @@ class Escritorio extends Controller{
         parent::__construct();
     }
     function render(){               
-        
+        parent::validarSesion();
         $this->view->render('escritorio/escritorio');
     }
     function getEscritorios() {

@@ -36,7 +36,7 @@ body {
     </style>
 <body style="height:100vh !important;">    
     <div class="wrapper">
-        <form class="login p1">
+        <form class="login p1" id="frmLogin">
             <!-- Icon -->
             <div class="text-center form-grop mb-3">
                 <h3>Iniciar Sesión</h3>
@@ -47,11 +47,11 @@ body {
            <div class="form-group">
                <div class="col-xs-6">
                    <label for="txtEmail">Correo Electrónico:</label>
-                   <input type="email" class="form-control" id="txtEmail" placeholder="Correo electrónico" autofocus require>
+                   <input type="email" class="form-control" id="txtEmail" name="txtEmail" placeholder="Correo electrónico" autofocus required >
                </div>
                <div class="col-xs-6">
                    <label for="txtPassword">Contraseña:</label>
-                   <input type="password" class="form-control" id="txtPassword" placeholder="Constraseña" require>
+                   <input type="password" class="form-control" id="txtPassword" name="txtPassword" placeholder="Constraseña" required >
                </div>               
            </div>
            <div class="form-group text-center">

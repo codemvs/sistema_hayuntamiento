@@ -5,8 +5,8 @@ class Index extends Controller{
         parent::__construct();
     }
 
-    function render(){                
-        
+    function render(){    
+        parent::validarSesion();
         $this->view->render('index/home');
     }
    

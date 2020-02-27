@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     require 'libs/database.php';
     require 'libs/model.php';
     require 'libs/controller.php';

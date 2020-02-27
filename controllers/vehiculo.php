@@ -6,7 +6,7 @@ class Vehiculo extends Controller{
         parent::__construct();
     }
     function render() {              
-        
+        parent::validarSesion();
         $this->view->render('vehiculo/vehiculo');
     }
     function getVehiculos() {

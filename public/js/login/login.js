@@ -8,8 +8,7 @@ var Login = Login || {
     },
     inicarControles: function(){     
         // Eliminar    
-        $('#txtEmail').val('popeye@marino.soy'); 
-        $('#txtPassword').val('123');
+        
         
     },
     // Events
@@ -50,16 +49,27 @@ var Login = Login || {
                 email:$('#txtEmailUs').val().trim(),
                 contrasenia:$('#txtPasswordUs').val().trim()
             };
-            console.log(usuraio)
-
-            $.post('../myapplication/login/createUsuario',usuraio)
-                .then(res=> swal.fire('Se agrego correctamente'))
-                .catch((err,err1, err2)=>console.log(err, err1, err2))
+                       
+            Login.sRegistrarUsuario(usuraio).then(()=>{
+                let usuario = $('#txtEmailUs').val().trim();
+                $('#modRegistroUsuario').modal('hide');
+                Swal.fire('Transacción exitosa',`Usuario creado ${usuario}`,'success');
+            });
 
         });
     },   
     
     // Servicios
+    sRegistrarUsuario: function(usuario) {
+        var $d = $.Deferred();
+        Utils.post(base+'login/createUsuario', usuario).then((res)=>{
+            $d.resolve(res);
+        }).fail((err)=>{
+            Swal.fire('Ocurrió un error',err.message,'error');
+            $d.reject();
+        });
+        return $d.promise();
+    },
     sIniciarSesion: function(dataLogin) {
         var $d = $.Deferred();
         Utils.post(base+'login/iniciarSesion', dataLogin).then((res)=>{

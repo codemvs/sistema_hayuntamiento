@@ -1,6 +1,5 @@
 <?php
 
-require_once 'controllers/errores.php';
 
 class App{
 
@@ -45,8 +44,8 @@ class App{
                 // si se llama a un controlador
                 $controller->render();  
             }
-        }else{
-            $controller = new Errores();
+        }else{            
+            header('Location: '.URL);
         }
     }
     

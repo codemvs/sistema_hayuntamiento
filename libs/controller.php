@@ -16,6 +16,12 @@ class Controller{
             $this->model = new $modelName();
         }
     }
+    function validarSesion() {
+        if(sizeof($_SESSION) == 0){
+            header('Location: '.URL.'login');
+        }
+        
+    }
 }
 
 ?>

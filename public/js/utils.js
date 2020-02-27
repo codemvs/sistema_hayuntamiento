@@ -50,10 +50,6 @@ var Utils = Utils || {
             }
         });       
         return $d.promise();
-    },
-    sLogOut: ()=>{
-        Utils.post('../myapplication/login/cerrarSesion').then((res)=>{            
-        });
     }
 }
  

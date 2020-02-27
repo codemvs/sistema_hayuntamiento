@@ -21,7 +21,7 @@
             </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">            
-                <button class="btn btn-outline-success my-2 my-sm-0" type="button">Salir</button>
+                <a href="<?php echo URL?>logout" class="btn btn-outline-success my-2 my-sm-0" type="button">Cerrar Sesión</a>
             </form>
         </div>
     </nav>

@@ -1,4 +1,5 @@
 <?php
+
 // Clases
 require 'clases/usuario_class.php';
 
@@ -57,7 +58,7 @@ class Login extends Controller{
                     echo "El usuario no es válido";
                     exit();                    
                 }
-                
+                $_SESSION["usuario"] = "ok";
                 header("HTTP/1.1 200 OK");                
                 echo json_encode($respUsuario);
                 exit();
@@ -71,32 +72,6 @@ class Login extends Controller{
             
         }
     }
-    function cerrarSession(){
-        if ($_SERVER['REQUEST_METHOD'] == 'POST')
-        {
-            
-            session_destroy();
-            
-            header("HTTP/1.1 200 OK");    
-            // Destruir todas las variables de sesión.
-            // $_SESSION = array();
-
-            // Si se desea destruir la sesión completamente, borre también la cookie de sesión.
-            // Nota: ¡Esto destruirá la sesión, y no la información de la sesión!
-            // if (ini_get("session.use_cookies")) {
-            //     $params = session_get_cookie_params();
-            //     setcookie(session_name(), '', time() - 42000,
-            //         $params["path"], $params["domain"],
-            //         $params["secure"], $params["httponly"]
-            //     );
-            // }
-
-            // Finalmente, destruir la sesión.
-            
-            parent::cerrarSesion();
-            exit();
-            
-        }
-    }
+    
 }
 ?>
