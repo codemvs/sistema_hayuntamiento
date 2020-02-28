@@ -13,7 +13,7 @@ var Login = Login || {
     },
     // Events
     btnIniciarSesion: function(){
-        $('#btnIniciarSesion').click((e)=>{
+        $('#frmLogin').submit((e)=>{
             e.preventDefault();
             
             var dataLogin = {
@@ -35,7 +35,7 @@ var Login = Login || {
         });        
     },
     btnRegistrarUsuario:function(){
-        $('#btnRegistroUsuario').click((e)=>{
+        $('#frmRegistroUsuario').submit((e)=>{
             e.preventDefault();
             var usuraio = {                
                 nombre:$('#txtNombre').val().trim(),

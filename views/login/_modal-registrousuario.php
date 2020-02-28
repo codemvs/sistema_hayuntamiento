@@ -16,17 +16,17 @@
 
                         <div class="col-sm-4 form-group">
                             <label for="txtNombre">Nombre:</label>
-                            <input type="text" id="txtNombre" class="form-control" placeholder="Nombre" autofocus/>
+                            <input type="text" id="txtNombre" class="form-control" placeholder="Nombre" autofocus required/>
                         </div>
 
                         <div class="col-sm-4 form-group">
                             <label for="txtApellidos">Apellidos:</label>
-                            <input type="text" id="txtApellidos" class="form-control" placeholder="Apellidos"/>
+                            <input type="text" id="txtApellidos" class="form-control" placeholder="Apellidos" required/>
                         </div>
 
                         <div class="col-sm-4 form-group">
                             <label for="txtDomicilio">Domicilio:</label>
-                            <input type="text" id="txtDomicilio" class="form-control" placeholder="Domicilio"/>
+                            <input type="text" id="txtDomicilio" class="form-control" placeholder="Domicilio" required/>
                         </div>
 
                         <div class="col-sm-4 form-group">
@@ -36,12 +36,12 @@
 
                         <div class="col-sm-4 form-group">
                             <label for="txtCelular">Celular:</label>
-                            <input type="text" id="txtCelular" class="form-control" placeholder="Celular"/>
+                            <input type="text" id="txtCelular" class="form-control" placeholder="Celular" required/>
                         </div>
 
                         <div class="col-sm-4 form-group">
                             <label for="txtFechaNacimiento">Fecha Nacimiento:</label>
-                            <input type="text" id="txtFechaNacimiento" class="form-control datepicker" placeholder="dd/mm/aaaa"/>
+                            <input type="text" id="txtFechaNacimiento" class="form-control datepicker" placeholder="dd/mm/aaaa" required/>
                         </div>
 
                         <div class="col-sm-4 form-group">
@@ -51,17 +51,17 @@
 
                         <div class="col-sm-4 form-group">
                             <label for="txtCurp">CURP:</label>
-                            <input type="text" id="txtCurp" class="form-control" placeholder="CURP"/>
+                            <input type="text" id="txtCurp" class="form-control" placeholder="CURP" required/>
                         </div>
 
                         <div class="col-sm-4 form-group">
                             <label for="txtEmail">Correo electrónico:</label>
-                            <input type="email" id="txtEmailUs" class="form-control" placeholder="Correo electrónico"/>
+                            <input type="email" id="txtEmailUs" class="form-control" placeholder="Correo electrónico" required/>
                         </div>
 
                         <div class="col-sm-4 form-group">
                             <label for="txtPassword">Contraseña:</label>
-                            <input type="password" id="txtPasswordUs" class="form-control" placeholder="Contraseña"/>
+                            <input type="password" id="txtPasswordUs" class="form-control" placeholder="Contraseña" required/>
                         </div>
                     </div>
                 </div>
