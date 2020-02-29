@@ -10,6 +10,26 @@ var Computadoras = Computadoras || {
             var table = $('#tbComputadoras').DataTable( {
                 destroy:true,
                 data:res,
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'excelHtml5',
+                        exportOptions: {
+                            columns: [1,2,3,4,5,6,7,8,9,10]
+                        } 
+                    }, 
+                    {
+                        extend: 'pdfHtml5',
+                        orientation: 'landscape',
+                        pageSize: 'LEGAL',
+                        customize: function(doc) {
+                            doc.content[1].margin = [ 100, 0, 100, 0 ] //left, top, right, bottom
+                        },
+                        exportOptions: {
+                            columns: [1,2,3,4,5,6,7,8,9,10]
+                        }
+                    }
+                ],
                 columns:[
                     {title:'ID',data:'idComputadora'},
                     {title:'No. Inventario',data:'numeroInventario'},

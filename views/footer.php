@@ -14,4 +14,12 @@
 <script src="<?php echo URL?>public/vendor/datatable/js/dataTables.bootstrap4.min.js"></script>
 <script src="<?php echo URL?>public/vendor/datatable/js/dataTables.fixedColumns.min.js"></script>
 
+<script src="<?php echo URL?>public/vendor/datatable/js/dataTables.buttons.min.js"></script> 
+<script src="<?php echo URL?>public/vendor/datatable/js/buttons.flash.min.js"></script> 
+<script src="<?php echo URL?>public/vendor/datatable/js/jszip.min.js"></script> 
+<script src="<?php echo URL?>public/vendor/datatable/js/pdfmake.min.js"></script> 
+<script src="<?php echo URL?>public/vendor/datatable/js/vfs_fonts.js"></script> 
+<script src="<?php echo URL?>public/vendor/datatable/js/buttons.html5.min.js"></script> 
+<script src="<?php echo URL?>public/vendor/datatable/js/buttons.print.min.js"></script> 
+
 <script src="<?php echo URL?>public/js/utils.js"></script>
