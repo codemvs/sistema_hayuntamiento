@@ -117,8 +117,11 @@ var Computadoras = Computadoras || {
         });
     },
     clickBtnCrearActualizarComputadora: () => {
-        $('#aceptarComputadora').click((e)=>{
+        Computadoras.validateComputadora();
+        $('#frmComputadoras').submit((e)=>{
             e.preventDefault();
+            var frmValid = $('#frmComputadoras').valid();
+            if(!frmValid) return false;
             var data ={
                 idComputadora:$('#txt_idComputadora').val().trim(),
                 numeroInventario:$('#txt_numeroInventario').val().trim(),
@@ -154,8 +157,58 @@ var Computadoras = Computadoras || {
 
         });
     },
+    validateComputadora: ()=>{
+        $('#frmComputadoras').validate({
+            rules:{
+                txt_numeroInventario:{
+                    required: true,
+                    minlength: 2,
+                    number: true
+                },
+                txt_descripcion:{
+                    required: true,
+                    minlength: 2                    
+                },
+                txt_valorFactura:{
+                    required: true,
+                    minlength: 2,
+                    number:true
+                },
+                txt_valorActual:{
+                    required: true,
+                    minlength: 2,
+                    number:true
+                },
+                txt_marca:{
+                    required: true,
+                    minlength: 2
+                },
+                txt_modelo:{
+                    required: true,
+                    minlength: 2
+                },
+                txt_color:{
+                    required: true,
+                    minlength: 2
+                },
+                txt_areaAdscripcion:{
+                    required: true,
+                    minlength: 2
+                },
+                txt_fechaAdquisicion:{
+                    required: true,
+                    minlength: 2
+                },
+                txt_condiciones:{
+                    required: true,
+                    minlength: 2
+                },
+            }
+        });
+    },
     limpiarFormularioComputadora: () =>{
         $('#txt_idComputadora').val("");
+        $('#frmComputadoras label.error').remove();
         $('#frmComputadoras')[0].reset();
     },
         // Servicios
