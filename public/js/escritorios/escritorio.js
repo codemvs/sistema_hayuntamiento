@@ -103,8 +103,11 @@ var Escritorio = Escritorio || {
         });
     },
     clickBtnCrearActualizarEscritorio: () => {
-        $('#aceptarEscritorio').click((e)=>{
+        Escritorio.validarEscritorio();
+        $('#frmEscritorio').submit((e)=>{
             e.preventDefault();
+            var frmEscritorioValido = $('#frmEscritorio').valid();
+            if(!frmEscritorioValido)return false;
             var data ={
                 idEscritorio: $('#txt_idEscritorio').val().trim(),
                 numeroInventario: $('#txt_numeroInventario').val().trim(),
@@ -132,9 +135,41 @@ var Escritorio = Escritorio || {
             
         });
     },
+    validarEscritorio: ()=>{
+        $('#frmEscritorio').validate({
+            rules:{
+                txt_numeroInventario:{
+                    required: true,
+                    minlength:2,
+                    number: true
+                },
+                txt_modelo:{
+                    required: true,
+                    minlength:2
+                },
+                txt_color:{
+                    required: true,
+                    minlength:2
+                },
+                txt_areaAdscripcion:{
+                    required: true,
+                    minlength:2
+                },
+                txt_fechaAdquisicion:{
+                    required: true,
+                    minlength:2
+                },
+                txt_observacion:{
+                    required: true,
+                    minlength:2
+                },
+            }
+        });
+    },
     limpiarFormularioEscritorio: () =>{
         $('#txt_idEscritorio').val("");
         $('#frmEscritorio')[0].reset();
+        $('#frmEscritorio label.error').remove();
     },
         // Servicios
     sGetEscritorios: () =>{

@@ -16,32 +16,32 @@
                             
                             <div class="col-sm-4 form-group">                                
                                 <label for="txt_numeroInventario">No. Inventario:</label>
-                                <input type="text" class="form-control" placeholder="No. Inventario" id="txt_numeroInventario">                                
+                                <input type="text" class="form-control" placeholder="No. Inventario" id="txt_numeroInventario" name="txt_numeroInventario">                                
                             </div>
                             
                             <div class="col-sm-4 form-group">                                
                                 <label for="txt_modelo"> Modelo:</label>
-                                <input type="text" class="form-control" placeholder=" Modelo " id="txt_modelo">                                
+                                <input type="text" class="form-control" placeholder=" Modelo " id="txt_modelo" name="txt_modelo">                                
                             </div>
 
                             <div class="col-sm-4 form-group">                                
                                 <label for="txt_color"> Color:</label>
-                                <input type="text" class="form-control" placeholder=" Color " id="txt_color">                                
+                                <input type="text" class="form-control" placeholder=" Color " id="txt_color" name="txt_color">                                
                             </div>
                             
                             <div class="col-sm-4 form-group">                                
                                 <label for="txt_areaAdscripcion"> Área adscripción:</label>
-                                <input type="text" class="form-control" placeholder=" Área adscripción" id="txt_areaAdscripcion">                                
+                                <input type="text" class="form-control" placeholder=" Área adscripción" id="txt_areaAdscripcion" name="txt_areaAdscripcion">                                
                             </div>
                             
                             <div class="col-sm-4 form-group">                                
                                 <label for="txt_fechaAdquisicion"> Fecha Adquisición:</label>
-                                <input type="text" class="form-control" placeholder=" Fecha Adquisición" id="txt_fechaAdquisicion">                                
+                                <input type="text" class="form-control" placeholder=" Fecha Adquisición" id="txt_fechaAdquisicion" name="txt_fechaAdquisicion">                                
                             </div>
                             
                             <div class="col-sm-4 form-group">                                
                                 <label for="txt_observacion"> Observación:</label>
-                                <input type="text" class="form-control" placeholder=" Observación" id="txt_observacion">                                
+                                <input type="text" class="form-control" placeholder=" Observación" id="txt_observacion" name="txt_observacion">                                
                             </div>
 
                             <div class="col-sm-12 form-group">
