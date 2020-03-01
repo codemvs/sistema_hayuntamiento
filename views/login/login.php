@@ -47,11 +47,11 @@ body {
            <div class="form-group">
                <div class="col-xs-6">
                    <label for="txtEmail">Correo Electrónico:</label>
-                   <input type="email" class="form-control" id="txtEmail" name="txtEmail" placeholder="Correo electrónico" autofocus required >
+                   <input type="email" class="form-control" id="txtEmail" name="txtEmail" placeholder="Correo electrónico" autofocus >
                </div>
                <div class="col-xs-6">
                    <label for="txtPassword">Contraseña:</label>
-                   <input type="password" class="form-control" id="txtPassword" name="txtPassword" placeholder="Constraseña" required >
+                   <input type="password" class="form-control" id="txtPassword" name="txtPassword" placeholder="Constraseña" >
                </div>               
            </div>
            <div class="form-group text-center">
@@ -74,6 +74,8 @@ body {
     <script src="<?php echo URL?>public/vendor/sweetalert2-9.7.1/js/sweetalert2.min.js"></script> 
     <script src="<?php echo URL?>public/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
     <script src="<?php echo URL?>public/vendor/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js"></script>
+    <!-- Jquey Validate -->
+    <script src="<?php echo URL?>public/vendor/jquery-validator/jquery.validate.min.js"></script>
     <script src="<?php echo URL?>public/js/utils.js"></script> 
 
     <script src="<?php echo URL?>public/js/login/login.js"></script>

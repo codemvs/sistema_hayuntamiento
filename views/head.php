@@ -14,8 +14,8 @@
   <!--Datatable-->
   <link href="<?php echo URL;?>public/vendor/datatable/css/dataTables.bootstrap4.min.css" rel="stylesheet">
   <link href="<?php echo URL;?>public/vendor/datatable/css/fixedColumns.dataTables.min.css" rel="stylesheet">
-  
-<link rel="stylesheet" type="text/css" href="<?php echo URL;?>public/vendor/datatable/css/buttons.dataTables.min.css"> 
-  
+  <!-- Datatable button exports -->
+  <link type="text/css" href="<?php echo URL;?>public/vendor/datatable/css/buttons.dataTables.min.css"> 
+  <!-- App -->
   <link href="<?php echo URL;?>public/css/main.css" rel="stylesheet">
 </head>

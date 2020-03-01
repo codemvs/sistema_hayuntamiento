@@ -16,52 +16,62 @@
 
                         <div class="col-sm-4 form-group">
                             <label for="txtNombre">Nombre:</label>
-                            <input type="text" id="txtNombre" class="form-control" placeholder="Nombre" autofocus required/>
+                            <input type="text" id="txtNombre" name="txtNombre" 
+                                    class="form-control" placeholder="Nombre" autofocus/>
                         </div>
 
                         <div class="col-sm-4 form-group">
                             <label for="txtApellidos">Apellidos:</label>
-                            <input type="text" id="txtApellidos" class="form-control" placeholder="Apellidos" required/>
+                            <input type="text" id="txtApellidos" name="txtApellidos" 
+                                    class="form-control" placeholder="Apellidos"/>
                         </div>
 
                         <div class="col-sm-4 form-group">
                             <label for="txtDomicilio">Domicilio:</label>
-                            <input type="text" id="txtDomicilio" class="form-control" placeholder="Domicilio" required/>
+                            <input type="text" id="txtDomicilio" name="txtDomicilio" 
+                                    class="form-control" placeholder="Domicilio"/>
                         </div>
 
                         <div class="col-sm-4 form-group">
                             <label for="txtTelefono">Teléfono:</label>
-                            <input type="text" id="txtTelefono" class="form-control" placeholder="Teléfono Fijo"/>
+                            <input type="text" id="txtTelefono" name="txtTelefono" 
+                                    class="form-control" placeholder="Teléfono Fijo"/>
                         </div>
 
                         <div class="col-sm-4 form-group">
                             <label for="txtCelular">Celular:</label>
-                            <input type="text" id="txtCelular" class="form-control" placeholder="Celular" required/>
+                            <input type="text" id="txtCelular" name="txtCelular" 
+                                    class="form-control" placeholder="Celular"/>
                         </div>
 
                         <div class="col-sm-4 form-group">
                             <label for="txtFechaNacimiento">Fecha Nacimiento:</label>
-                            <input type="text" id="txtFechaNacimiento" class="form-control datepicker" placeholder="dd/mm/aaaa" required/>
+                            <input type="text" id="txtFechaNacimiento" name="txtFechaNacimiento" 
+                                    class="form-control datepicker" placeholder="dd/mm/aaaa"/>
                         </div>
 
                         <div class="col-sm-4 form-group">
                             <label for="txtRfc">RFC:</label>
-                            <input type="text" id="txtRfc" class="form-control" placeholder="RFC"/>
+                            <input type="text" id="txtRfc" name="txtRfc" 
+                                    class="form-control" placeholder="RFC"/>
                         </div>
 
                         <div class="col-sm-4 form-group">
                             <label for="txtCurp">CURP:</label>
-                            <input type="text" id="txtCurp" class="form-control" placeholder="CURP" required/>
+                            <input type="text" id="txtCurp" name="txtCurp" 
+                                    class="form-control" placeholder="CURP"/>
                         </div>
 
                         <div class="col-sm-4 form-group">
                             <label for="txtEmail">Correo electrónico:</label>
-                            <input type="email" id="txtEmailUs" class="form-control" placeholder="Correo electrónico" required/>
+                            <input type="email" id="txtEmailUs" name="txtEmailUs" 
+                                    class="form-control" placeholder="Correo electrónico"/>
                         </div>
 
                         <div class="col-sm-4 form-group">
                             <label for="txtPassword">Contraseña:</label>
-                            <input type="password" id="txtPasswordUs" class="form-control" placeholder="Contraseña" required/>
+                            <input type="password" id="txtPasswordUs" name="txtPasswordUs" 
+                                    class="form-control" placeholder="Contraseña"/>
                         </div>
                     </div>
                 </div>
