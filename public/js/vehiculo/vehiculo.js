@@ -125,8 +125,11 @@ var Vehiculo = Vehiculo || {
         });
     },
     clickBtnCrearActualizarVehiculo: () => {
-        $('#aceptarVehiculo').click((e)=>{
+        Vehiculo.validateVehiculo();
+        $('#frmVehiculo').submit((e)=>{
             e.preventDefault();
+            var frmValidVehiculo = $('#frmVehiculo').valid();
+            if(!frmValidVehiculo) return false;
             var data = {
                 idVehiculo:$('#txt_idVehiculo').val().trim(),
                 numeroInventario:$('#txt_numeroInventario').val().trim(),
@@ -163,9 +166,81 @@ var Vehiculo = Vehiculo || {
             
         });
     },
+    validateVehiculo: ()=>{
+        $('#frmVehiculo').validate({
+            rules:{
+                txt_numeroInventario:{
+                    required: true,
+                    minlength: 1,
+                    number: true
+                },
+                txt_numeroSerie:{
+                    required: true,
+                    minlength: 1,
+                    number: true
+                },
+                txt_marca:{
+                    required: true,
+                    minlength: 2
+                },
+                txt_mdelo:{
+                    required: true,
+                    minlength: 2
+                },
+                txt_color:{
+                    required: true,
+                    minlength: 2
+                },
+                txt_linea:{
+                    required: true,
+                    minlength: 2
+                },
+                txt_numeroMotor:{
+                    required: true,
+                    minlength: 2
+                },
+                txt_placa:{
+                    required: true,
+                    minlength: 2
+                },
+                txt_areaAdscripcion:{
+                    required: true,
+                    minlength: 2
+                },
+                txt_condicionVehiculo:{
+                    required: true,
+                    minlength: 2
+                },
+                txt_fechaAquisicion:{
+                    required: true,
+                    minlength: 2
+                },
+                txt_observacion:{
+                    required: true,
+                    minlength: 2
+                },
+                txt_descripcion:{
+                    required: true,
+                    minlength: 2
+                },
+                txt_valorActual:{
+                    required: true,
+                    minlength: 2,
+                    number: true,
+                },
+                txt_valorFactura:{
+                    required: true,
+                    minlength: 2,
+                    number: true
+                },
+                
+            }
+        });
+    },
     limpiarFormularioVehiculo: () =>{
         $('#txt_idVehiculo').val("");
         $('#frmVehiculo')[0].reset();
+        $('#frmVehiculo label.error').remove();
     },
         // Servicios
     sGetVehiculos: () =>{
