@@ -1,7 +1,7 @@
 var base = $('#baseUrl').attr('href');
 
 $('.datepicker').datepicker({
-    format: 'dd/mm/yyyy',            
+    format: 'yyyy-mm-dd',            
     locale: 'es'
 });
 

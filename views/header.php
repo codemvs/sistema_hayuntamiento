@@ -19,6 +19,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo URL?>vehiculo">Vehículos</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo URL?>otros">Otros</a>
+            </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">            
                 <a href="<?php echo URL?>logout" class="btn btn-outline-success my-2 my-sm-0" type="button">Cerrar Sesión</a>
