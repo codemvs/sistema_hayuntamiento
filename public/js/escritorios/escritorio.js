@@ -7,6 +7,8 @@ var Escritorio = Escritorio || {
         
     },
     cargarTablaEscritorios:()=>{
+        let imgBase64 ='';
+        Utils.convertirImagenABase64(base+'public/img/logo.jpg').then(res => imgBase64=res);
         Escritorio.sGetEscritorios().then((res)=>{
             $('#tbEscritorio').DataTable( {
                 destroy:true,
@@ -16,23 +18,23 @@ var Escritorio = Escritorio || {
                     {
                         extend: 'excelHtml5',
                         exportOptions: {
-                            columns: [1,2,3,4,5,6]
+                            columns: [0,1,2,3,4,5,6]
                         } 
                     }, 
                     {
                         extend: 'pdfHtml5',
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
-                        customize: function(doc) {
-                            doc.content[1].margin = [ 100, 0, 100, 0 ] //left, top, right, bottom
+                        customize: function(doc) {                            
+                            Utils.personalizarPDF(doc,imgBase64);
                         },
                         exportOptions: {
-                            columns: [1,2,3,4,5,6]
+                            columns: [0,1,2,3,4,5,6]
                         }
                     }
                 ],
                 columns:[
-                    {title:'ID',data:'idEscritorio'},
+                    {title:'Id',data:'idEscritorio'},
                     {title:'No. Inventario',data:'numeroInventario'},
                     {title:'Modelo',data:'modelo'},
                     {title:'Color',data:'color'},
@@ -56,6 +58,9 @@ var Escritorio = Escritorio || {
                 scrollX:        true,
                 scrollCollapse: true,
                 paging:         false,
+                initComplete:function(){
+                    Utils.renderStyleBootstrapExportButtons();
+                }
             } );
         });
     },

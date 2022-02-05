@@ -7,6 +7,8 @@ var Otros = Otros || {
         
     },
     cargarTablaOtros:()=>{
+        let imgBase64 ='';
+        Utils.convertirImagenABase64(base+'public/img/logo.jpg').then(res => imgBase64=res);
         Otros.sGetOtros().then((res)=>{
             $('#tbOtros').DataTable( {
                 destroy:true,
@@ -16,7 +18,7 @@ var Otros = Otros || {
                     {
                         extend: 'excelHtml5',
                         exportOptions: {
-                            columns: [1,2,3,4,5,6,7,8,9,10,11]
+                            columns: [0,1,2,3,4,5,6,7,8,9,10,11]
                         } 
                     }, 
                     {
@@ -24,15 +26,15 @@ var Otros = Otros || {
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
                         customize: function(doc) {
-                            doc.content[1].margin = [ 100, 0, 100, 0 ] //left, top, right, bottom
+                            Utils.personalizarPDF(doc,imgBase64);
                         },
                         exportOptions: {
-                            columns: [1,2,3,4,5,6,7,8,9,10,11]
+                            columns: [0,1,2,3,4,5,6,7,8,9,10,11]
                         }
                     }
                 ],
                 columns:[
-                    {title:'#', data:'idOtros'},
+                    {title:'Id', data:'idOtros'},
                     {title:'No. Inventario', data:'numeroInventario'},
                     {title:'Nombre', data:'nombre'},
                     {title:'Marca', data:'marca'},
@@ -63,6 +65,9 @@ var Otros = Otros || {
                 scrollX:        true,
                 scrollCollapse: true,
                 paging:         false,
+                initComplete:function(){
+                    Utils.renderStyleBootstrapExportButtons();
+                }
             } );
         });
     },

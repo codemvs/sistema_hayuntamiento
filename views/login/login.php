@@ -47,11 +47,11 @@ body {
            <div class="form-group">
                <div class="col-xs-6">
                    <label for="txtEmail">Correo Electrónico:</label>
-                   <input type="email" class="form-control" id="txtEmail" name="txtEmail" placeholder="Correo electrónico" autofocus >
+                   <input type="email" class="form-control" id="txtEmail" name="txtEmail" placeholder="Correo electrónico" value="popeye@marino.soy" autofocus >
                </div>
                <div class="col-xs-6">
                    <label for="txtPassword">Contraseña:</label>
-                   <input type="password" class="form-control" id="txtPassword" name="txtPassword" placeholder="Constraseña" >
+                   <input type="password" class="form-control" id="txtPassword" name="txtPassword" placeholder="Constraseña" value="123">
                </div>               
            </div>
            <div class="form-group text-center">

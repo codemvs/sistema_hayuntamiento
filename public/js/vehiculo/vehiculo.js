@@ -7,6 +7,8 @@ var Vehiculo = Vehiculo || {
         
     },
     cargarTablaVehiculos:()=>{
+        let imgBase64 ='';
+        Utils.convertirImagenABase64(base+'public/img/logo.jpg').then(res => imgBase64=res);
         Vehiculo.sGetVehiculos().then((res)=>{
             $('#tbVehiculo').DataTable( {
                 destroy:true,
@@ -16,7 +18,7 @@ var Vehiculo = Vehiculo || {
                     {
                         extend: 'excelHtml5',
                         exportOptions: {
-                            columns: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+                            columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
                         } 
                     }, 
                     {
@@ -24,15 +26,15 @@ var Vehiculo = Vehiculo || {
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
                         customize: function(doc) {
-                            doc.content[1].margin = [ 100, 0, 100, 0 ] //left, top, right, bottom
+                            Utils.personalizarPDF(doc,imgBase64);
                         },
                         exportOptions: {
-                            columns: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+                            columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
                         }
                     }
                 ],
                 columns:[
-                    {title:'ID',data:'idVehiculo'},
+                    {title:'Id',data:'idVehiculo'},
                     {title:'No. Inventario',data:'numeroInventario'},
                     {title:'No. Serie',data:'numeroSerie'},
                     {title:'Marca',data:'marca'},
@@ -69,6 +71,9 @@ var Vehiculo = Vehiculo || {
                 scrollX:        true,
                 scrollCollapse: true,
                 paging:         false,
+                initComplete:function(){
+                    Utils.renderStyleBootstrapExportButtons();
+                }
             } );
         });
     },

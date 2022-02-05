@@ -1,6 +1,6 @@
 <?php
 
-define('URL', '../myapplication/');
+define('URL', '../sistema_hayuntamiento/');
 
 define('HOST', 'localhost');
 define('DB', 'hayuntamiento');

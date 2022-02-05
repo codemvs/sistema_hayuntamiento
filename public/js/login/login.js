@@ -112,7 +112,13 @@ var Login = Login || {
                 txtPasswordUs:{
                     required: true,
                     minlength: 3
+                },
+                txtConfirmPassUs:{
+                    equalTo:txtPasswordUs
                 }
+              },
+              messages:{
+                txtConfirmPassUs: 'La contraseña no coincide'
               }
         });
         
