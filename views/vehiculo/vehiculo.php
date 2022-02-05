@@ -9,7 +9,12 @@
 
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header"><h4>Agregar Vehículo</h4></div>
+                    <div class="card-header">
+                        <div class="title-header">
+                            <h4 >Agregar Vehículo</h4>                            
+                            <img src="<?php echo URL?>public/img/login.png" class="rounded-circle" style="width: 40px;"/>
+                        </div>
+                    </div>
                     <div class="card-body">
                         <form id="frmVehiculo" class="row">
                             <input type="hidden" id="txt_idVehiculo">
