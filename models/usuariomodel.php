@@ -31,6 +31,20 @@ class UsuarioModel extends Model{
             throw new Exception($e->getMessage());
         }
     }
+    public function actualizarContrasenia($usuario){
+        $query = 'UPDATE `tblusuario` SET contrasenia = :contrasenia WHERE email = :email';
+        try{
+        $respQuery = $this->db->connect()->prepare($query);
+
+        $respQuery->execute([
+        'email'=>$usuario->email,
+        'contrasenia'=>$usuario->contrasenia
+        ]);
+        return $respQuery->rowCount();
+        }catch(PDOException $e){
+        throw new Exception($e->getMessage());
+        }
+    }
     public function iniciarSesion($usuario) {
         $query = 'SELECT idUsuario, nombre, apellidos,email 
                     FROM tblusuario 

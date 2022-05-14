@@ -60,7 +60,8 @@ body {
 
             
             <div>
-                <a class="underlineHover" href="javascript:void(0);" id="abrirModalCrearCuenta">Crear una cuenta.</a>
+                <a class="underlineHover" href="javascript:void(0);" id="abrirModalCrearCuenta">Crear una cuenta.</a><br/>
+                <a class="underlineHover" href="javascript:void(0);" id="abrirModalRecuperarContrasenia">¿Olvidaste tu contraseña?</a>
             </div>
             
         </form>

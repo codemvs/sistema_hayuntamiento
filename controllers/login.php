@@ -72,6 +72,34 @@ class Login extends Controller{
             
         }
     }
+    function recuperarContrasenia(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+            $params = $_POST;           
+            
+            $usuario = new UsuarioClass();                
+            
+            $correoValido = isset($params['email']) && filter_var($params['email'], FILTER_VALIDATE_EMAIL);
+            
+            $contraseniaValido = isset($params['password']) && isset($params['password2']) && $params['password'] == $params['password2'];
+            
+            if($contraseniaValido!=1 || $correoValido!=1){
+                header("HTTP/1.1 401 UNAUTHORIZED");
+                    echo "Revisar que los valores sean correctos";
+                    exit();   
+            }
+            $usuario->email=$params['email'];
+            $usuario->contrasenia=$params['password'];
+
+            $postId = 1;
+            if($postId)
+            {            
+            //header("HTTP/1.1 400 OK");
+            echo $this->model->actualizarContrasenia($usuario);            
+            exit();
+            }
+        }
+    }
     
 }
 ?>

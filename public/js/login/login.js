@@ -7,8 +7,8 @@ var Login = Login || {
         Login.inicarControles();
     },
     inicarControles: function(){     
-        // Eliminar    
-        
+        Login.btnAbrirModalRecupearContrasenia();
+        Login.btnRecuperarContrasnia();
         
     },
     // Events
@@ -37,6 +37,37 @@ var Login = Login || {
             $('#modRegistroUsuario').modal();
         });        
     },
+    btnAbrirModalRecupearContrasenia:function(){
+        $('#abrirModalRecuperarContrasenia').click(()=>{
+            $('#frmActualizarContrasenia')[0].reset();
+            $('#frmActualizarContrasenia label.error').remove();
+            $('#modRecuperarContrasenia').modal();
+        });
+    },
+    btnRecuperarContrasnia:function(){
+        Login.validateRecupearContrasnia();
+        $('#frmActualizarContrasenia').submit((e)=>{            
+            e.preventDefault();
+            var frmIsValid = $('#frmActualizarContrasenia').valid();
+            if(!frmIsValid) return false;
+            var usuraio = {                
+                email:$('#txtCorreo').val().trim(),
+                password:$('#txtPasswordC').val().trim(),
+                password2:$('#txtPassword2').val().trim()                
+            };
+            
+            Login.sRecuperarContrasenia(usuraio).then((res)=>{
+                if(res == 0){
+                    Swal.fire('Ocurrio un error',`No se pudo actualizar la contraseña, verifica que el correo sea válido`,'error');
+                    return;
+                }
+                Swal.fire('Transacción exitosa',`Se acutalizo la contraseña con éxito`,'success');
+                $('#modRecuperarContrasenia').modal('hide');
+                
+            });
+
+        });
+    },
     btnRegistrarUsuario:function(){   
         Login.validateRegistrarUsuario();
         $('#frmRegistroUsuario').submit((e)=>{            
@@ -64,6 +95,27 @@ var Login = Login || {
 
         });
     },   
+    validateRecupearContrasnia: function(){
+        $('#frmActualizarContrasenia').validate({            
+            rules: {
+                
+                txtCorreo:{
+                    required: true,
+                    email: true
+                },
+                txtPasswordC:{
+                    required: true,
+                    minlength: 3
+                },
+                txtPassword2:{
+                    equalTo:txtPasswordC
+                }
+              },
+              messages:{
+                txtPassword2: 'La contraseña no coincide'
+              }
+        });
+    },
     validateRegistrarUsuario: function(){
                 
         $('#frmRegistroUsuario').validate({            
@@ -150,6 +202,16 @@ var Login = Login || {
     sIniciarSesion: function(dataLogin) {
         var $d = $.Deferred();
         Utils.post(base+'login/iniciarSesion', dataLogin).then((res)=>{
+            $d.resolve(res);
+        }).fail((err)=>{
+            Swal.fire('Ocurrió un error',err.message,'error');
+            $d.reject();
+        });
+        return $d.promise();
+    },
+    sRecuperarContrasenia: function(data) {
+        var $d = $.Deferred();
+        Utils.post(base+'login/recuperarContrasenia', data).then((res)=>{
             $d.resolve(res);
         }).fail((err)=>{
             Swal.fire('Ocurrió un error',err.message,'error');
